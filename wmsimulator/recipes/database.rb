@@ -2,9 +2,18 @@ include_recipe 'apt'
 include_recipe 'mysql::server'
 
 #somehow the database::mysql package fails to install the mysql client libs before building the gem
-package 'libmysqlclient-dev' do
-  action :nothing
-end.run_action(:install)
+begin
+  require 'mysql'
+rescue LoadError
+  Chef::Log.info "mysql gem not installed. Installing."
+  execute "apt-get update" do
+    ignore_failure true
+    action :nothing
+  end.run_action(:run)
+  mysql_chef_gem 'default' do
+    action :nothing
+  end.run_action(:install)
+end
 include_recipe 'database::mysql'
 database_connection = {
   host: node['wmsimulator']['database']['host'],
