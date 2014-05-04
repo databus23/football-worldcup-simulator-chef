@@ -12,11 +12,14 @@ default['wmsimulator']['thread_count'] = 8
 
 default['wmsimulator']['admin_password'] = 'secret admin pw' 
 default['wmsimulator']['session_key'] = 'lsgvbaapxljcvuafcroqoqvlgtymqtlmuqfwgadnlibsaucjnagdbdnfhryt'
+default['wmsimulator']['google_analytics_code'] = nil
 default['wmsimulator']['database']['host'] = 'localhost'
 default['wmsimulator']['database']['port'] = node['mysql']['port'].to_i
 default['wmsimulator']['database']['name'] = 'worldcup'
 default['wmsimulator']['database']['user'] = 'worldcup_admin'
 default['wmsimulator']['database']['password'] = 'Ijd6387dBfuwP'
+
+
 default['wmsimulator']['redis']['host'] = node['wmsimulator']['database']['host']
 default['wmsimulator']['redis']['port'] = 6379 
 default['redisio']['servers'] = [port: 6379, requirepass: node['wmsimulator']['redis']['password'] ] if node['wmsimulator']['redis']['password']
