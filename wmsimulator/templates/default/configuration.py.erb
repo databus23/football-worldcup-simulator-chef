@@ -31,4 +31,4 @@ def customize(config):
 	# import dispatcher_qless
 	import dispatcher_qless
 	config.dispatcher_class = dispatcher_qless.DispatcherQLess
-	config.qless_connection_string = "redis://<%= node['wmsimulator']['redis']['host'] %>:<%= node['wmsimulator']['redis']['port'] %>"
+	config.qless_connection_string = "redis://<%= node['wmsimulator']['redis']['password'] ? "user:#{node['wmsimulator']['redis']['password']}@" : '' %><%= node['wmsimulator']['redis']['host'] %>:<%= node['wmsimulator']['redis']['port'] %>"

@@ -19,3 +19,4 @@ default['wmsimulator']['database']['user'] = 'worldcup_admin'
 default['wmsimulator']['database']['password'] = 'Ijd6387dBfuwP'
 default['wmsimulator']['redis']['host'] = node['wmsimulator']['database']['host']
 default['wmsimulator']['redis']['port'] = 6379 
+default['redisio']['servers'] = [port: 6379, requirepass: node['wmsimulator']['redis']['password'] ] if node['wmsimulator']['redis']['password']

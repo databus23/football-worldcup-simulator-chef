@@ -4,6 +4,6 @@ use Rack::Auth::Basic, "Password" do |username, password|
   '<%= node['wmsimulator']['admin_password'] %>' == password
 end
 
-client = Qless::Client.new(:host => "<%= node['wmsimulator']['redis']['host'] %>", :port => "<%= node['wmsimulator']['redis']['port'] %>")
+client = Qless::Client.new(:host => "<%= node['wmsimulator']['redis']['host'] %>", :port => "<%= node['wmsimulator']['redis']['port'] %>", :password => "<%= node['wmsimulator']['redis']['password'] %>")
 
 run Qless::Server.new(client)
