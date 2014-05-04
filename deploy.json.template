@@ -9,6 +9,7 @@
     "database": {
       "host": "DATABASE_SERVER",
       "password": "changemealso"
-    }
+    },
+	"google_analytics_code": ""
   }
 }

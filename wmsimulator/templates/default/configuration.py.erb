@@ -22,6 +22,8 @@ def customize(config):
 	
 	config.show_custom_tournament_page = False
 	
+	config.google_analytics_code = "<%= node['wmsimulator']['google_analytics_code'] %>"
+	
 	config.is_debug_mode_enabled = False
 	config.simulation_thread_count = 8
 	config.simulation_run_count = 1000 # total runs per simulation
