@@ -1,3 +1,4 @@
+include_recipe 'build-essential'
 directory node['wmsimulator']['qless_install_dir'] do
   recursive true
 end

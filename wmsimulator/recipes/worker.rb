@@ -1,4 +1,5 @@
 include_recipe 'apt'
+include_recipe 'build-essential'
 #install python from package
 include_recipe 'python::package'
 #install pip from source
